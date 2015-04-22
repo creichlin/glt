@@ -4,8 +4,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import ch.kerbtier.glt.Layer;
-import ch.kerbtier.glt.elements.Bindable;
-import ch.kerbtier.glt.elements.Texture;
+import ch.kerbtier.glt.gl.Bindable;
+import ch.kerbtier.glt.gl.Texture;
 import ch.kerbtier.lanthanum.Vec2f;
 
 public class Font extends Bindable {

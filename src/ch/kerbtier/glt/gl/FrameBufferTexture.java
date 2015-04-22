@@ -1,4 +1,4 @@
-package ch.kerbtier.glt.elements;
+package ch.kerbtier.glt.gl;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL14.*;

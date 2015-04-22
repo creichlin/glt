@@ -2,9 +2,9 @@ package ch.kerbtier.glt;
 
 import java.nio.charset.Charset;
 
-import ch.kerbtier.glt.elements.FragmentShader;
-import ch.kerbtier.glt.elements.Program;
-import ch.kerbtier.glt.elements.VertexShader;
+import ch.kerbtier.glt.gl.FragmentShader;
+import ch.kerbtier.glt.gl.Program;
+import ch.kerbtier.glt.gl.VertexShader;
 
 public class Layer {
   

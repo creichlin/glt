@@ -1,4 +1,4 @@
-package ch.kerbtier.glt.elements;
+package ch.kerbtier.glt.gl;
 
 public abstract class Base extends Bindable {
   

@@ -1,4 +1,4 @@
-package ch.kerbtier.glt.elements;
+package ch.kerbtier.glt.gl;
 
 import java.nio.FloatBuffer;
 import java.util.HashSet;
