@@ -10,8 +10,7 @@ public class Root {
   }
   
   public void draw(Layer layer) {
-    Context context = new Context();
-    context.setLayer(layer);
+    Context context = new Context(layer);
     element.draw(context);
   }
 }

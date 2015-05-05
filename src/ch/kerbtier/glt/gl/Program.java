@@ -5,17 +5,21 @@ import java.util.HashSet;
 import java.util.Set;
 
 import org.lwjgl.BufferUtils;
+
 import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.opengl.GL11.GL_TEXTURE_2D;
 import static org.lwjgl.opengl.GL11.glEnable;
 import static org.lwjgl.opengl.GL13.*;
 
 import org.lwjgl.util.vector.Matrix4f;
+
 import ch.kerbtier.glt.Error;
+import ch.kerbtier.lanthanum.Mat33f;
+import ch.kerbtier.lanthanum.Mat44f;
 
 public class Program extends Base {
 
-  private Set<String> errorsPrinted = new HashSet<String>();
+  private Set<String> errorsPrinted = new HashSet<>();
 
   private VertexShader vs = null;
   private FragmentShader fs = null;
@@ -82,10 +86,38 @@ public class Program extends Base {
     assertBound();
     FloatBuffer buf = BufferUtils.createFloatBuffer(16);
     matrix.store(buf);
+    buf.flip();
+    glUniformMatrix4(uniform, false, buf);
+  }
+  
+  public void setUniform(int uniform, Mat33f matrix) {
+    assertBound();
+    FloatBuffer buf = BufferUtils.createFloatBuffer(9);
+    matrix.store(buf);
+    buf.rewind();
+    glUniformMatrix3(uniform, false, buf);
+  }
+
+  public void setUniform(String uniform, Mat33f transformation) {
+    setUniform(getUniform(uniform), transformation);
+  }
+
+  public void setUniform(int uniform, Mat44f matrix) {
+    assertBound();
+    FloatBuffer buf = BufferUtils.createFloatBuffer(16);
+    matrix.store(buf);
     buf.rewind();
     glUniformMatrix4(uniform, false, buf);
   }
 
+  public void setUniform(String uniform, Mat44f transformation) {
+    setUniform(getUniform(uniform), transformation);
+  }
+
+  
+  
+  
+  
   public void setUniform(String name, float v1, float v2, float v3, int v4) {
     setUniform(getUniform(name), v1, v2, v3, v4);
   }

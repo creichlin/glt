@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Container extends Element {
 
-  private List<Element> elements = new ArrayList<Element>();
+  private List<Element> elements = new ArrayList<>();
   
   public void add(Element element) {
     elements.add(element);

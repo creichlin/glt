@@ -17,7 +17,7 @@ public class GltDisplay {
   private int h = -1;
   private boolean fullscreen;
   
-  private List<Layer> layers = new ArrayList<Layer>();
+  private List<Layer> layers = new ArrayList<>();
   private boolean initialised = false;
 
   public GltDisplay(int width, int height, boolean fullscreen) {
@@ -76,7 +76,7 @@ public class GltDisplay {
   }
   
   public void clear() {
-    glClear(GL_DEPTH_BUFFER_BIT);
+    glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
     Error.gl("clear");
   }
   

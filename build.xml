@@ -1,0 +1,37 @@
+<project default="dist" xmlns:ivy="antlib:org.apache.ivy.ant">
+  
+  <taskdef resource="org/apache/catalina/ant/catalina.tasks"/>
+    
+  <path id="compile.classpath">
+    <fileset dir="lib/default/jars">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="lib/default/bundles">
+      <include name="*.jar"/>
+    </fileset>
+    <fileset dir="lib/build/jars">
+      <include name="*.jar"/>
+    </fileset>
+  </path>
+  
+  <target name="init">
+    <deltree dir="build/bin"/>
+    <mkdir dir="build/bin"/>
+    <mkdir dir="dist"/>
+  </target>
+  
+  <target name="resolve" depends="init">
+    <ivy:retrieve pattern="lib/default/[type]s/[artifact]-[revision].[ext]" conf="default" refresh="true"/>
+  </target>
+  
+  <target name="compile" depends="resolve">
+    <javac srcdir="src" destdir="build/bin" target="1.7" source="1.7" debug="true">
+      <classpath refid="compile.classpath"/>
+    </javac>
+  </target>
+  
+  <target name="dist" depends="compile">
+    <jar jarfile="dist/lib/dime2.jar" basedir="build/bin" includes="ch/kerbtier/dime2/**" />
+  </target>
+  
+</project>

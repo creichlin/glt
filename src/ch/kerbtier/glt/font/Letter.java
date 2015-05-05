@@ -36,10 +36,12 @@ public class Letter {
     verticesBuffer.flip();
 
     // Load the vertex data
+    GL20.glEnableVertexAttribArray(layer.getProgram().getIn(font.getPositionVariable()));
     GL20.glVertexAttribPointer(layer.getProgram().getIn(font.getPositionVariable()), 4, false, 6 * 4, verticesBuffer);
     GL20.glEnableVertexAttribArray(0);
 
     verticesBuffer.position(4);
+    GL20.glEnableVertexAttribArray(layer.getProgram().getIn(font.getUvVariable()));
     GL20.glVertexAttribPointer(layer.getProgram().getIn(font.getUvVariable()), 2, false, 6 * 4, verticesBuffer);
     GL20.glEnableVertexAttribArray(0);
 
